@@ -24,10 +24,10 @@ function startGps()
                 const uLat = position.coords.latitude
                 const uLng = position.coords.longitude
 
-                const question = JSON.parse(localStorage.getItem("quiz-questions"))
-                const index = parseInt(localStorage.getItem("currenIndex"))
+                const questions = JSON.parse(localStorage.getItem("quiz_questions"))
+                const index = parseInt(localStorage.getItem("currentIndex"))
 
-                if (!question || index >= questions.length) return
+                if (!questions || index >= questions.length) return
 
                 const currentQ = questions[index]
 
