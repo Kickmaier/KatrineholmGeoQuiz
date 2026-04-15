@@ -1,0 +1,99 @@
+.hidden
+{
+    display : none;
+}
+.answer-card
+{
+    background-color: rgba(126,55,208,0.9);
+    transition :background-color 0.3s;
+    padding : 20px;
+    margin : 10px;
+    cursor : pointer;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    border: 1px solid white;
+}
+
+.answer-card.correct
+{
+    background-color: green;
+}
+.answer-card.incorrect
+{
+    background-color: red;
+}
+.geo
+{
+    top : 0;
+    left : 0;
+    display: flex;
+    width: 100vw;
+    height:100vh;
+    justify-content: center;
+    align-content: center;
+    border : 2px dashed black; 
+    position : absolute;
+    z-index: 1;
+}
+#trivia
+{
+    width : 75vw;
+    max-width: 500px;
+    position : fixed;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    background-color: rgba(128,128,0,0.8);
+    border-radius: 15px;
+    color:white;
+    padding : 20px;
+}
+#trivia img
+{
+    justify-content: center;
+    width : 200px;
+    height : auto;
+    display : block;
+    margin : 0 auto;
+    border-radius: 15px;
+}
+
+#img-overlay
+{
+    position : fixed;
+    z-index: 1000;
+    bottom : 5%;
+    right : 5%;
+    width : 25vw;
+    max-width: 200px;
+    border : 3px solid white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    background-color: tan;
+}
+#img-overlay img
+{
+width : 100%;
+height : 100%;
+object-fit : cover;
+}
+#distance-meter
+{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: fixed;
+    bottom : 2vh;
+    background-color: rgba(0,0,0,0.8);
+    color : white;
+    padding : 10px 20px;
+    border: 2px solid rgb(128,128,0);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    left : 50%;
+    transform: translate(-50%);
+    border-radius: 50px;
+    z-index: 1500;
+    white-space: nowrap;
+}
