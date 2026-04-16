@@ -113,6 +113,7 @@ object-fit : cover;
 
 .index-body 
 {
+    background-color: olive;
     background: radial-gradient(circle at center, tan 0%, olive 100%);
     color: white;
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
