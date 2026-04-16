@@ -29,6 +29,13 @@ fetch(url)
         console.log(cleanQuestion)
         localStorage.setItem("quiz_questions", JSON.stringify(cleanQuestion))
         localStorage.setItem("currentIndex", 0)
+        const firstQ = cleanQuestion[0]
+        if(firstQ && firstQ.lng && firstQ.lat)
+        {
+            console.log("Zoomar in på första frågan")
+            flyToFirstQuestion(firstQ.lat, firstQ.lng)
+        }
+
         console.log("Frågor sparade")
         updateOverlay()
     })

@@ -1,6 +1,12 @@
 let map
 let watchId
-
+let positionMarker
+const userMarker = L.icon
+({
+    iconUrl : 'icons/mapmarker.png',
+    iconSize : [25 , 25],
+    iconAnchor : [20 , 40]
+})
 function initMap()
 {
 map = L.map('map',{
@@ -10,11 +16,26 @@ zoomSnap:0.1,
 zoomDelta:0.1,
 touchZoom: true,
 bounceAtZoomLimits:true
-}).setView([58.993, 16.208], 17.5);
+}).setView([58.993, 16.208], 10);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom: 19})
 .addTo(map)
-startGps()
+positionMarker = L.marker([0,0], {icon : userMarker}) 
 }
+function flyToFirstQuestion(lat, lng)
+{
+if(map)
+{
+    map.flyTo([lat, lng], 17.5, 
+    {
+        animate : true,
+        duration : 3
+    })
+    setTimeout(() => {
+        startGps()
+    }, 2500)
+}
+}
+
 function startGps()
 {
     if(navigator.geolocation)
@@ -23,7 +44,7 @@ function startGps()
             {
                 const uLat = position.coords.latitude
                 const uLng = position.coords.longitude
-
+                positionMarker.setLatLng([uLat, uLng]).addTo(map)
                 const questions = JSON.parse(localStorage.getItem("quiz_questions"))
                 const index = parseInt(localStorage.getItem("currentIndex"))
 
