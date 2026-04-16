@@ -1,13 +1,13 @@
 .hidden
 {
-    display : none;
+    display : none !important;
 }
 .answer-card
 {
     background-color: rgba(126,55,208,0.9);
     transition :background-color 0.3s;
-    padding : 20px;
-    margin : 10px;
+    padding : 12px;
+    margin : 5px;
     cursor : pointer;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
@@ -37,9 +37,13 @@
 }
 #trivia
 {
-    height : 90vh;
-    max-width: 500px;
     position : fixed;
+    display: flex;
+    flex-direction: column;
+    width : 90%;
+    max-width : 400px;
+    max-height : 85vh;
+    bottom : 20px;
     top : 50%;
     left : 50%;
     transform: translate(-50%, -50%);
@@ -47,16 +51,21 @@
     background-color: rgba(128,128,0,0.8);
     border-radius: 15px;
     color:white;
-    padding : 20px;
+    padding : 15px;
+    overflow-y: auto;
 }
+
 #trivia img
 {
     justify-content: center;
-    width : 200px;
+    width : 100%;
+    object-fit: cover ;
     height : auto;
+    max-height: 25vh;
     display : block;
     margin : 0 auto;
     border-radius: 15px;
+    flex : 0;
 }
 
 #img-overlay
@@ -96,4 +105,53 @@ object-fit : cover;
     border-radius: 50px;
     z-index: 1500;
     white-space: nowrap;
+}
+.leaflet-marker-icon
+{
+    opacity : 1;
+}
+
+.index-body 
+{
+    background: radial-gradient(circle at center, tan 0%, olive 100%);
+    color: white;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+.menu-container 
+{
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+#menu
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.menu-button
+{
+    background: rgba(128,128,0,0.8);
+    color: #1a1a1a;
+    text-decoration: none;
+    padding: 18px 20px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: block;
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.5)
 }

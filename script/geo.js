@@ -25,7 +25,7 @@ function flyToFirstQuestion(lat, lng)
 {
 if(map)
 {
-    map.flyTo([lat, lng], 17.5, 
+    map.flyTo([lat, lng], 17, 
     {
         animate : true,
         duration : 3

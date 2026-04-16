@@ -1,3 +1,21 @@
+const routes =
+[
+    {id: 'stadsparken', name: 'Konstrunda: Stadsparken'},
+    {id: 'sveaparken', name: 'Vandring: Sveaparken'}
+]
+
+function buildMenu()
+{
+    const menuContainer = document.getElementById('menu')
+    routes.forEach(route => {
+        const link = document.createElement('a')
+        link.href = `quiz.html?route=${route.id}`
+        link.innerText = route.name
+        link.className = "menu-button"
+        menuContainer.appendChild(link)
+    });
+}
+
 function updateOverlay()
 {
     const question = JSON.parse(localStorage.getItem("quiz_questions"))
@@ -16,3 +34,4 @@ function updateOverlay()
         overlay.classList.add("hidden")
     }
 }
+buildMenu()

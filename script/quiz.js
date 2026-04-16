@@ -1,4 +1,7 @@
-const url = "https://katrineholmgeoquiz.onrender.com/api/questions"
+const urlParam = new URLSearchParams(window.location.search)
+const routeId = urlParam.get('route')
+
+const apiUrl = `https://katrineholmgeoquiz.onrender.com/api/questions?type=${routeId}`
 
 function decodeHTML(html)
 {
@@ -7,7 +10,7 @@ function decodeHTML(html)
     return txt.value
 }
 
-fetch(url)
+fetch(apiUrl)
     .then(function(response) {return response.json()})
     .then(function(data)
     {
