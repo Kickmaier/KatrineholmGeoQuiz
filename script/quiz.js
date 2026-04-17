@@ -45,7 +45,7 @@ fetch(apiUrl)
 
     function showQuestion()
     {
-        const currentQ = questions[index]
+        // const currentQ = questions[index]
         let allAnswers = [currentQ.correct_answer].concat(currentQ.incorrect_answers)
         allAnswers.sort(function() {return Math.random() -0.5 }) 
         
@@ -102,7 +102,6 @@ fetch(apiUrl)
                 startGps()
             }
         }, 1000)
-        let index = parseInt(localStorage.getItem("currentIndex"))
         index++
         localStorage.setItem("currentIndex", index)
         updateOverlay()

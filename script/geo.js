@@ -65,8 +65,8 @@ function startGps()
 
                     if (dist <= 8)
                     {
-                        stopGps()
-                        geoTrigger()
+                        // stopGps()
+                        geoTrigger(index)
                     }
                 }
             }, (err) => console.error(err), {enableHighAccuracy: true})
