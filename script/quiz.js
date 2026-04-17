@@ -45,8 +45,6 @@ fetch(apiUrl)
 
     function showQuestion()
     {
-        const questions = JSON.parse(localStorage.getItem("quiz_questions"))
-        const  index = parseInt(localStorage.getItem("currentIndex"))
         const currentQ = questions[index]
         let allAnswers = [currentQ.correct_answer].concat(currentQ.incorrect_answers)
         allAnswers.sort(function() {return Math.random() -0.5 }) 

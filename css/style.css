@@ -107,7 +107,9 @@ object-fit : cover;
 }
 .leaflet-marker-icon
 {
-    opacity : 1;
+    opacity : 1 !important;
+    background-color: transparent !important;
+    filter : none !important;
 }
 
 .index-body 

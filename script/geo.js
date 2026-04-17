@@ -1,6 +1,8 @@
+let lastVibration = -1
 let map
 let watchId
 let positionMarker
+
 const userMarker = L.icon
 ({
     iconUrl : 'icons/mapmarker.png',
@@ -21,6 +23,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom: 19})
 .addTo(map)
 positionMarker = L.marker([0,0], {icon : userMarker}) 
 }
+
 function flyToFirstQuestion(lat, lng)
 {
 if(map)
@@ -45,8 +48,6 @@ function startGps()
                 const uLat = position.coords.latitude
                 const uLng = position.coords.longitude
                 positionMarker.setLatLng([uLat, uLng]).addTo(map)
-                const questions = JSON.parse(localStorage.getItem("quiz_questions"))
-                const index = parseInt(localStorage.getItem("currentIndex"))
 
                 if (!questions || index >= questions.length) return
 
@@ -82,9 +83,18 @@ function stopGps()
     }
 }
 
-function geoTrigger()
+function geoTrigger(index)
 {
+    if(index > lastVibration)
+    {
+        if(navigator.vibrate)
+        {
+            navigator.vibrate([200, 100, 200])
+
+        }
+    }
     document.getElementById("trivia").classList.remove("hidden")
     showQuestion()
+    lastVibration = currentIndex
 }
 window.addEventListener('load', initMap);

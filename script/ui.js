@@ -18,9 +18,6 @@ function buildMenu()
 
 function updateOverlay()
 {
-    const question = JSON.parse(localStorage.getItem("quiz_questions"))
-    const index = parseInt(localStorage.getItem("currentIndex"))
-    const currentQ = question[index]
     const overlay = document.getElementById("img-overlay")
     const overlayImage =document.getElementById("overlay-image")
 
@@ -34,4 +31,5 @@ function updateOverlay()
         overlay.classList.add("hidden")
     }
 }
+
 buildMenu()
