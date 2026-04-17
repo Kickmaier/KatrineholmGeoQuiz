@@ -97,14 +97,17 @@ fetch(apiUrl)
         setTimeout(()=>{
             document.getElementById("trivia").classList.add("hidden")
             document.getElementById("trivia").innerHTML = ""
+            window.index++
+            localStorage.setItem("currentIndex", index)
+            window.currentQ = questions[window.index]
+            updateOverlay()
             if (typeof startGps === "function")
             {
                 startGps()
             }
         }, 1000)
-        window.index++
-        localStorage.setItem("currentIndex", index)
-        updateOverlay()
+        
+        
     }
     
     
