@@ -87,14 +87,14 @@ function geoTrigger(index)
 {
     if(index > lastVibration)
     {
-        if(navigator.vibrate)
+        if("vibrate" in navigator)
         {
             navigator.vibrate([200, 100, 200])
-
         }
-    }
+    
     document.getElementById("trivia").classList.remove("hidden")
     showQuestion()
     lastVibration = currentIndex
+    }
 }
 window.addEventListener('load', initMap);
