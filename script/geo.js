@@ -1,4 +1,4 @@
-let lastVibration = -1
+// let lastVibration = -1
 let map
 let watchId
 let positionMarker
@@ -66,7 +66,7 @@ function startGps()
                     if (dist <= 8)
                     {
                         // stopGps()
-                        geoTrigger(index)
+                        geoTrigger()
                     }
                 }
             }, (err) => console.error(err), {enableHighAccuracy: true})
@@ -83,10 +83,10 @@ function stopGps()
     }
 }
 
-function geoTrigger(index)
+function geoTrigger()
 {
-    if(index > lastVibration)
-    {
+    // if(index > lastVibration)
+    // {
         if("vibrate" in navigator)
         {
             navigator.vibrate([200, 100, 200])
@@ -94,7 +94,7 @@ function geoTrigger(index)
     
     document.getElementById("trivia").classList.remove("hidden")
     showQuestion()
-    lastVibration = currentIndex
-    }
+    // lastVibration = currentIndex
+    // }
 }
 window.addEventListener('load', initMap);
