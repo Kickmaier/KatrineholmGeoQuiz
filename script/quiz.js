@@ -102,7 +102,7 @@ fetch(apiUrl)
                 startGps()
             }
         }, 1000)
-        index++
+        window.index++
         localStorage.setItem("currentIndex", index)
         updateOverlay()
     }
