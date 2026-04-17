@@ -7,6 +7,7 @@ const routes =
 function buildMenu()
 {
     const menuContainer = document.getElementById('menu')
+    if(!menuContainer) return
     routes.forEach(route => {
         const link = document.createElement('a')
         link.href = `quiz.html?route=${route.id}`
@@ -31,5 +32,26 @@ function updateOverlay()
         overlay.classList.add("hidden")
     }
 }
+function startButton()
+{
+    const button = document.getElementById("start-game")
+    console.log("hittade: " ,button)
+    if(button)
+    {
+    button.innerText = "START"
+    button.onclick = startGame
+    }
+}
+function startGame()
+{
+    if('vibrate' in navigator)
+    {
+        navigator.vibrate(50)
+    }
+    const overlay = document.getElementById("start-overlay")
+    overlay.classList.add("hidden")
+    flyToFirstQuestion(questions[index].lat, questions[index].lng)
+}
 
 buildMenu()
+startButton()

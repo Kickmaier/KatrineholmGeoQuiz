@@ -93,6 +93,7 @@ function geoTrigger()
         }
     
     document.getElementById("trivia").classList.remove("hidden")
+    stopGps()
     showQuestion()
     // lastVibration = currentIndex
     // }

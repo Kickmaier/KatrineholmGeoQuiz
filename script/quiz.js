@@ -36,7 +36,7 @@ fetch(apiUrl)
         if(firstQ && firstQ.lng && firstQ.lat)
         {
             console.log("Zoomar in på första frågan")
-            flyToFirstQuestion(firstQ.lat, firstQ.lng)
+            
         }
 
         console.log("Frågor sparade")
