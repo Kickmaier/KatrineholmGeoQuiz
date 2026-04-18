@@ -59,7 +59,7 @@ function startCamera()
     navigator.mediaDevices.getUserMedia
     ({
         video : {
-            facingMode : "enviorment"
+            facingMode : { ideal: "environment" }
         }
     })
 .then(function(stream)
