@@ -51,7 +51,7 @@ function startGps()
 
                 if (!questions || index >= questions.length) return
 
-                const currentQ = questions[index]
+                // const currentQ = questions[index]
 
                 if(currentQ.lat && currentQ.lng)
                 {
@@ -65,7 +65,6 @@ function startGps()
 
                     if (dist <= 8)
                     {
-                        // stopGps()
                         geoTrigger()
                     }
                 }
@@ -85,8 +84,6 @@ function stopGps()
 
 function geoTrigger()
 {
-    // if(index > lastVibration)
-    // {
         if("vibrate" in navigator)
         {
             navigator.vibrate([200, 100, 200])
@@ -95,7 +92,5 @@ function geoTrigger()
     document.getElementById("trivia").classList.remove("hidden")
     stopGps()
     showQuestion()
-    // lastVibration = currentIndex
-    // }
 }
 window.addEventListener('load', initMap);

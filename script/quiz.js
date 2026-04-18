@@ -32,14 +32,14 @@ fetch(apiUrl)
         console.log(cleanQuestion)
         localStorage.setItem("quiz_questions", JSON.stringify(cleanQuestion))
         localStorage.setItem("currentIndex", 0)
+        localStorage.setItem("currentScore", 0)
+        console.log("Frågor sparade")
         const firstQ = cleanQuestion[0]
         if(firstQ && firstQ.lng && firstQ.lat)
         {
             console.log("Zoomar in på första frågan")
             
         }
-
-        console.log("Frågor sparade")
         updateOverlay()
     })
 
@@ -83,6 +83,8 @@ fetch(apiUrl)
         if(answer === correctAnswer)
         {
             chosenCard.classList.add("correct")
+            window.score++
+            localStorage.setItem("currentScore", window.score)
         }
         else
         {
@@ -98,12 +100,19 @@ fetch(apiUrl)
             document.getElementById("trivia").classList.add("hidden")
             document.getElementById("trivia").innerHTML = ""
             window.index++
-            localStorage.setItem("currentIndex", index)
+            localStorage.setItem("currentIndex", window.index)
+            if(window.index < window.questions.length)
+            {
             window.currentQ = questions[window.index]
             updateOverlay()
             if (typeof startGps === "function")
             {
                 startGps()
+            }
+            }
+            else
+            {
+                endGame()
             }
         }, 1000)
         

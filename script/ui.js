@@ -1,3 +1,4 @@
+// Lägg till en rad i denna för nya rundor samt lägg till array med frågor i api
 const routes =
 [
     {id: 'stadsparken', name: 'Konstrunda: Stadsparken'},
@@ -52,6 +53,33 @@ function startGame()
     overlay.classList.add("hidden")
     flyToFirstQuestion(questions[index].lat, questions[index].lng)
 }
-
+// Lade till denna för att kunna visa tydligt att jag inte fuskar :P
+function startCamera()
+{
+    navigator.mediaDevices.getUserMedia
+    ({
+        video : {
+            facingMode : "enviorment"
+        }
+    })
+.then(function(stream)
+    {video.srcObject = stream
+        console.log("kameran rullar")
+    })
+.catch(function(err)
+    {
+    console.error("kunde inte ladda kameran ", err)
+    video.style.display = 'none'
+    })
+}
+function endGame()
+{
+    const text = document.getElementById("result-text")
+    text.textContent = `Resultat ${score} / ${index}`
+    const homeButton = document.getElementById("home-button")
+    homeButton.innerHTML = `<a href = "index.html" onclick="localStorage.clear()">Startsidan</a>`
+    document.getElementById("result-container").classList.remove("hidden")
+}
 buildMenu()
 startButton()
+startCamera()
