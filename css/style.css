@@ -188,7 +188,7 @@ object-fit : cover;
     justify-content: center;
     align-items: center;
 }
-#video-area
+/* #video-area
 {
     position:fixed;
     top: 20px;
@@ -201,7 +201,7 @@ object-fit : cover;
     z-index : 2500;
     object-fit: cover;
     box-shadow : 0 3px 15px rgba(0,0,0,0.4)
-}
+} */
 #result-container
 {
     position :absolute;

@@ -53,25 +53,25 @@ function startGame()
     overlay.classList.add("hidden")
     flyToFirstQuestion(questions[index].lat, questions[index].lng)
 }
-// Lade till denna för att kunna visa tydligt att jag inte fuskar :P
-function startCamera()
-{
-    navigator.mediaDevices.getUserMedia
-    ({
-        video : {
-            facingMode : { exact: "environment" }
-        }
-    })
-.then(function(stream)
-    {video.srcObject = stream
-        console.log("kameran rullar")
-    })
-.catch(function(err)
-    {
-    console.error("kunde inte ladda kameran ", err)
-    video.style.display = 'none'
-    })
-}
+// Lade till denna för att kunna visa tydligt vid redovisning
+// function startCamera()
+// {
+//     navigator.mediaDevices.getUserMedia
+//     ({
+//         video : {
+//             facingMode : { exact: "environment" }
+//         }
+//     })
+// .then(function(stream)
+//     {video.srcObject = stream
+//         console.log("kameran rullar")
+//     })
+// .catch(function(err)
+//     {
+//     console.error("kunde inte ladda kameran ", err)
+//     video.style.display = 'none'
+//     })
+// }
 function endGame()
 {
     const text = document.getElementById("result-text")
@@ -82,4 +82,4 @@ function endGame()
 }
 buildMenu()
 startButton()
-startCamera()
+// startCamera()
